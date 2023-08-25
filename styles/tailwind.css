@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.required-field-label {
+  position: relative;
+  padding-left: 8px;
+}
+
+.required-field-label::before {
+  position: absolute;
+  content: "*";
+  color: red;
+  top: 0;
+  left: 0;
+}

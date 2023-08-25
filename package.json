@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env FORCE_COLOR=1 next dev",
+    "dev": "cross-env FORCE_COLOR=1 next dev -p 3232",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -54,7 +54,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^1.10.0",
-    "zod": "^3.21.4"
+    "zod": "^3.21.4",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -103,9 +104,6 @@
     "tsc": "^2.0.4",
     "typescript": "5.1.6",
     "vitest": "^0.34.0"
-  },
-  "engines": {
-    "node": ">=18.15.0"
   },
   "packageManager": "yarn@1.22.19"
 }
