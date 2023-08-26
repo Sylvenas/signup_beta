@@ -1,6 +1,8 @@
 import * as Form from "@radix-ui/react-form"
+import { Checkbox } from "components/Checkbox"
 import { FormEvent } from "react"
 import { ArcSiteLogo } from "components/arcsite-logo"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "components/Select"
 import { UserinfoData, useSignUpStore } from "stores/store-signup"
 import { Container } from "./container"
 
@@ -32,13 +34,14 @@ export function StepUserInfo() {
 
 function UserinfoForm() {
   const setData = useSignUpStore((state) => state.setData)
+  const setStep = useSignUpStore((state) => state.setStep)
   const userinfoData = useSignUpStore((state) => state.userinfoData)
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = Object.fromEntries(new FormData(event.currentTarget)) as UserinfoData
+    console.log(data)
     setData({ step: "userinfoData", data })
-    // TODO: next step
-    //  setStep("userinfo")
+    setStep("download")
   }
 
   return (
@@ -56,7 +59,7 @@ function UserinfoForm() {
           <Form.Control asChild>
             <input
               defaultValue={userinfoData?.firstname || ""}
-              className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] pl-3 text-black-100 outline-none"
+              className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] !bg-white-fff pl-3 text-black-100 outline-none"
               required
             />
           </Form.Control>
@@ -73,12 +76,60 @@ function UserinfoForm() {
           <Form.Control asChild>
             <input
               defaultValue={userinfoData?.lastname || ""}
-              className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] pl-3 text-black-100 outline-none"
+              className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] !bg-white-fff pl-3 text-black-100 outline-none"
               required
             />
           </Form.Control>
         </Form.Field>
       </div>
+      <Form.Field name="use_case" className="mb-8 w-full">
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+          <Form.Label className="required-field-label mb-2 text-12 font-semibold leading-4 text-black-55 sm:text-14">
+            How will you use ArcSite?
+          </Form.Label>
+          <Form.Message className="text-12 leading-4 text-[#ff4d4f]" match="valueMissing">
+            Please Select
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <Select>
+            <SelectTrigger className="h-8 rounded-sm border-[#d9d9d9]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {usageList.map((it) => (
+                <SelectItem value={it} key={it} className="cursor-pointer">
+                  {it}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </Form.Control>
+      </Form.Field>
+      <Form.Field name="industry" className="mb-8 w-full">
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+          <Form.Label className="required-field-label mb-2 text-12 font-semibold leading-4 text-black-55 sm:text-14">
+            Industry
+          </Form.Label>
+          <Form.Message className="text-12 leading-4 text-[#ff4d4f]" match="valueMissing">
+            Please Select
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <Select>
+            <SelectTrigger className="h-8 rounded-sm border-[#d9d9d9]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className="h-64">
+              {industryList.map((it) => (
+                <SelectItem value={it} key={it} className="cursor-pointer">
+                  {it}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </Form.Control>
+      </Form.Field>
       <Form.Field name="password" className="mb-8 w-full">
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
           <Form.Label className="required-field-label mb-2 text-12 font-semibold leading-4 text-black-55 sm:text-14">
@@ -91,11 +142,19 @@ function UserinfoForm() {
         <Form.Control asChild>
           <input
             defaultValue={userinfoData?.password || ""}
-            className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] pl-3 text-black-100 outline-none"
+            className="h-8 w-full rounded-sm border border-solid !border-[#d9d9d9] !bg-white-fff pl-3 text-black-100 outline-none"
             type="password"
             autoComplete="on"
           />
         </Form.Control>
+      </Form.Field>
+      <Form.Field name="request_demo_on_signup" className="mb-6 w-full">
+        <Form.Control asChild>
+          <Checkbox />
+        </Form.Control>
+        <label className="relative -top-[3px] ml-3 text-14 font-normal">
+          I'm ready to see ArcSite in action! I'd like to schedule a personalized demo.
+        </label>
       </Form.Field>
       <Form.Submit asChild>
         <button
@@ -108,3 +167,32 @@ function UserinfoForm() {
     </Form.Root>
   )
 }
+
+const usageList = [
+  "Create Designs",
+  "Capture Site Data",
+  "Perform Material Takeoffs",
+  "Generate Estimates and Proposals",
+]
+
+const industryList = [
+  "Personal Projects",
+  "Student/Educator",
+  "Maintenance",
+  "Basement Waterproofing",
+  "Concrete",
+  "Design",
+  "Electrical",
+  "Fencing",
+  "Fire Inspection",
+  "Flooring",
+  "Foundation Repair",
+  "General Contracting",
+  "Gutters",
+  "HVAC",
+  "Pest Control",
+  "Plumbing",
+  "Site Audits / Inspection",
+  "Turf",
+  "Other",
+]

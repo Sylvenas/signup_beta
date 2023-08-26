@@ -4,13 +4,19 @@
 
 .required-field-label {
   position: relative;
-  padding-left: 8px;
+  padding-left: 12px;
 }
 
 .required-field-label::before {
   position: absolute;
   content: "*";
-  color: red;
+  color: #ff4d4f;
+  font-size: 14px;
   top: 0;
   left: 0;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-background-color: #fff !important;
 }

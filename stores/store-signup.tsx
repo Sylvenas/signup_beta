@@ -11,7 +11,7 @@ export type UserinfoData = {
   password: string
 }
 
-const steps = ["email", "userinfo"] as const
+const steps = ["email", "userinfo", "download"] as const
 type Step = (typeof steps)[number]
 type setDataType = { step: "emailData"; data: EmailData } | { step: "userinfoData"; data: UserinfoData }
 
