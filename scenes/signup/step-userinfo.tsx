@@ -9,7 +9,7 @@ import { Container } from "./container"
 export function StepUserInfo() {
   const setStep = useSignUpStore((state) => state.setStep)
   return (
-    <div className="grow px-4 pt-10">
+    <div className="max-w-[100vw] grow px-4 pt-10">
       <div className="top-5 text-center">
         <ArcSiteLogo className="inline" />
       </div>

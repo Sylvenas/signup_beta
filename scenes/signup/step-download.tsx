@@ -29,7 +29,7 @@ const APP_LINK_MAP = {
 
 export default function StepDownload() {
   return (
-    <div className="grow px-4 pt-10">
+    <div className="max-w-[100vw] grow px-4 pt-10">
       <div className="top-5 text-center">
         <ArcSiteLogo className="inline" />
       </div>
@@ -79,7 +79,7 @@ export default function StepDownload() {
 
 function DownLoadAppContent({ link, logo, qrCode }: { link: string; logo: string; qrCode: string }) {
   return (
-    <div className="flex ">
+    <div className="flex">
       <div className="text-center sm:mt-[6px] sm:w-[210px]">
         <a className="mt-8 inline-block text-center" target="_blank" href={link} rel="noreferrer">
           <img alt="app store" className="inline h-12" src={logo} />

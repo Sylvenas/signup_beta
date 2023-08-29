@@ -6,7 +6,7 @@ import { Login } from "./login"
 
 export function StepEmail() {
   return (
-    <div className="grow px-4">
+    <div className="max-w-[100vw] grow px-4">
       <div className="absolute right-20 top-5 hidden sm:block">
         <Login />
       </div>
