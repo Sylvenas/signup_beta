@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Analytics } from "@vercel/analytics/react"
 import { useSignUpStore } from "stores/store-signup"
 import { SignUpContent } from "./signup-content"
 import { SignupSide } from "./signup-side"
@@ -18,6 +19,7 @@ function ArcSiteSignup() {
         {step === "email" && <SignupSide />}
         <SignUpContent />
       </div>
+      <Analytics />
     </>
   )
 }

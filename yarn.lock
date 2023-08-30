@@ -5250,6 +5250,11 @@
     "@typescript-eslint/types" "6.4.0"
     "eslint-visitor-keys" "^3.4.1"
 
+"@vercel/analytics@^1.0.2":
+  "integrity" "sha512-BZFxVrv24VbNNl5xMxqUojQIegEeXMI6rX3rg1uVLYUEXsuKNBSAEQf4BWEcjQDp/8aYJOj6m8V4PUA3x/cxgg=="
+  "resolved" "https://registry.npmmirror.com/@vercel/analytics/-/analytics-1.0.2.tgz"
+  "version" "1.0.2"
+
 "@vercel/otel@^0.3.0":
   "integrity" "sha512-KgLZjBXmMPKCh9uswY81I6oaVZdH2Eyn4snbx86n20t2LW8iEmjSxzxuviET+lfiIQwWWCiZkC6+SiPXOc7naA=="
   "resolved" "https://registry.npmjs.org/@vercel/otel/-/otel-0.3.0.tgz"
