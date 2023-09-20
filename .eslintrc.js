@@ -17,6 +17,7 @@ module.exports = {
     },
   },
   rules: {
+    "react/no-unescaped-entities": "off",
     "testing-library/prefer-screen-queries": "off",
     "@next/next/no-html-link-for-pages": "off",
     "@typescript-eslint/no-unused-vars": [
